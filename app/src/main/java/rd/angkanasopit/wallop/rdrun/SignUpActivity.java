@@ -13,6 +13,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText nameEditText, surnameEditText, userEditText, passwordEditText;
     private RadioGroup radioGroup;
     private RadioButton avata1RadioButton, avata2RadioButton, avata3RadioButton, avata4RadioButton, avata5RadioButton;
+    private String nameString, surnameString, userString, passwordString, avataString;
 
 
     @Override
@@ -37,5 +38,31 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void clickSignUpSign(View view) {
 
+        //Get value from Edit Text
+        nameString = nameEditText.getText().toString().trim();
+        surnameString = surnameEditText.getText().toString().trim();
+        userString = userEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+
+        //ck space หาชองวาง
+        if (checkSpace()) {
+
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDiaog(this, R.drawable.doremon48, "มีช่องว่าง", "กรุณากรอกทุกชอง ค่ะ");
+
+        }
+
     }   //cickSign
+
+    private boolean checkSpace() {
+        boolean result = false;
+
+        if (nameString.equals("") ||
+                surnameString.equals("") ||
+                userString.equals("") ||
+                passwordString.equals("")) {
+            result = true;
+        }
+        return result;
+    }
 }   //main class
