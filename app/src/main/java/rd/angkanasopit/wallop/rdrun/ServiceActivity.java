@@ -158,6 +158,7 @@ public class ServiceActivity extends FragmentActivity implements OnMapReadyCallb
         myLoop();
 
 
+
     }   //onMap
 
     private void myLoop() {
